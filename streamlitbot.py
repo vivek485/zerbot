@@ -4,8 +4,6 @@ import pandas as pd
 import time
 import numpy as np
 from datetime import datetime, timedelta, date
-from ta.volatility import bollinger_hband,bollinger_lband,bollinger_mband
-from ta.trend import sma_indicator
 import logging
 from typing import Dict, List, Optional, Tuple
 import warnings
@@ -255,7 +253,7 @@ class AdvancedTradingBot:
         df['Close'] = df['HA_Close']
         
         # Bollinger Bands
-        df['bb_middle'] = ta.trend.sma_indicator(df['Close'], window=20)
+        df['bb_middle'] = df['Close'].rolling(window=20).mean()
         df['bb_std'] = df['Close'].rolling(window=20).std()
         df['bb_upper'] = df['bb_middle'] + (df['bb_std'] * 2)
         df['bb_lower'] = df['bb_middle'] - (df['bb_std'] * 2)
