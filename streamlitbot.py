@@ -6,6 +6,7 @@ import numpy as np
 
 from datetime import datetime, timedelta, date
 import ta
+from ta import *
 import logging
 from typing import Dict, List, Optional, Tuple
 import warnings
