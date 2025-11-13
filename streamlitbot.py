@@ -3,9 +3,7 @@ import requests
 import pandas as pd
 import time
 import numpy as np
-
 from datetime import datetime, timedelta, date
-import ta
 from ta.volatility import bollinger_hband,bollinger_lband,bollinger_mband
 from ta.trend import sma_indicator
 import logging
