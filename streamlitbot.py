@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import time
 import numpy as np
-from pygame import mixer
+
 from datetime import datetime, timedelta, date
 import ta
 import logging
@@ -59,12 +59,7 @@ class AdvancedTradingBot:
         self.thread = None
         
         # Initialize sound
-        try:
-            mixer.init()
-            self.plays = mixer.Sound("/home/vivek/PycharmProjects/pythonProject_new2024/screener/h.wav")
-        except:
-            logging.warning("Sound initialization failed - continuing without audio")
-            self.plays = None
+        
         
         # Headers
         self.headers = {
@@ -102,7 +97,7 @@ class AdvancedTradingBot:
     def get_instrument_token(self, symbol):
         """Get instrument token for a trading symbol"""
         try:
-            df = pd.read_csv('/home/vivek/PycharmProjects/pythonProject_new2024/zero/instruments.csv')
+            df = pd.read_csv('instruments.csv')
             result = df[df['tradingsymbol'] == symbol]
             
             if len(result) > 0:
@@ -370,7 +365,7 @@ class AdvancedTradingBot:
         if risk_per_unit == 0:
             return 75  # Minimum quantity
         
-        quantity = int(round((self.risk_per_trade / risk_per_unit) / 75)) * 75
+        quantity = 75 #int(round((self.risk_per_trade / risk_per_unit) / 75)) * 75
         return max(quantity, 75)  # Minimum 75 shares
 
     def manage_entry(self, symbol, last_candle):
