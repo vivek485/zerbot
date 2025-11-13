@@ -108,13 +108,7 @@ class AdvancedTradingBot:
             logging.error(f"Error getting instrument token: {e}")
             return None
 
-    def play_sound(self):
-        """Play notification sound"""
-        if self.plays:
-            try:
-                self.plays.play()
-            except:
-                pass
+
 
     def create_buy_order(self, symbol, quantity=1, order_type='MARKET', price=0, trigger_price=0):
         """Create a buy order dictionary"""
