@@ -6,7 +6,8 @@ import numpy as np
 
 from datetime import datetime, timedelta, date
 import ta
-from ta import *
+from ta.volatility import bollinger_hband,bollinger_lband,bollinger_mband
+from ta.trend import sma_indicator
 import logging
 from typing import Dict, List, Optional, Tuple
 import warnings
